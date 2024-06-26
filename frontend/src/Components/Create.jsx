@@ -8,6 +8,7 @@ const Create = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [newRobot, setNewRobot] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -22,7 +23,10 @@ const Create = () => {
         navigate("/");
       })
       .catch((error) => console.log("Create API Error: ", error));
-  };
+      setErrorMessage("Failed to create robot. Please try again.");
+  }
+
+
 
   return (
     <div className="tc">
@@ -69,6 +73,14 @@ const Create = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
+
+        {errorMessage && (
+          <div className="mt3 ba br2 pa3 red bg-washed-red">
+            {errorMessage}
+          </div>
+        )}
+
+
         <button
           type="submit"
           class="white b mt4 pa3 w-100 bg-blue hover-bg-gray bt-0 br-0 bl-0 bb bw2 b--mid-gray br2"

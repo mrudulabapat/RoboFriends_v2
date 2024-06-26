@@ -11,8 +11,8 @@ app.use(cors());
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "admin",
-  database: "robofriends",
+  password: "mrudulab",
+  database: "robotfriends",
 });
 
 //GET API Call
